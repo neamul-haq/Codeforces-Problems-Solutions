@@ -1,0 +1,50 @@
+/*
+Neamul Haq
+University of Barisal
+*/
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+#define ndl '\n';
+#define cyes cout << "YES" << '\n';
+#define cno cout << "NO" << '\n';
+#define print cout << ans << '\n';
+#define umap unordered_map<ll,ll>m;
+#define map map<ll,ll>m;
+int const mod = 1e9+7;
+const ll inf = 1e18;
+const ll N = 1e3 ;
+#define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
+#define all(x) (x).begin(), (x).end()
+void solve();
+
+int main()
+{
+    fast()
+    ll t=1; cin >> t;
+    while(t--) solve();
+}
+
+void solve(){
+    ll n,ans=0,mn=INT_MAX,mx=INT_MIN; cin >> n;
+    vector<ll>a(n+1);
+    umap
+    for(ll i=1; i<=n; i++)
+    {
+        cin >> a[i];
+        m[a[i]]=max(m[a[i]],i);
+    }
+    vector<pair<ll,ll>>p;
+    for(ll i=1; i<=n; i++)
+    {
+        if(m[a[i]]>i){
+            p.push_back({i,m[a[i]]});
+        }
+    }
+    sort(all(p));
+    pair<ll,ll>p2={0,0};
+    for(ll i=0; i<p.size(); i++)
+    {
+        if()
+    }
+}

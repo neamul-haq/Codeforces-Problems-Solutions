@@ -31,22 +31,38 @@ const ll N = 1e3 ;
 #define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define all(x) (x).begin(), (x).end()
 void solve();
-
+vector<vector<string>>squares(100);
+void makeSqr(int n){
+    if(n>99) return;
+    for(int i=0; i<n-2; i++){
+            string s2=squares[n-2][i];
+        squares[n].push_back(s2+"00");
+    }
+    int x=(n-3)/2;
+    string s(x,'0');
+    squares[n].push_back("1"+s+"6"+s+"9");
+    squares[n].push_back("9"+s+"6"+s+"1");
+    makeSqr(n+2);
+}
 int main()
 {
 #ifndef LOKAL
     fast()
 #endif
+
+    squares[1].push_back("1");
+    squares[3].push_back("169");
+    squares[3].push_back("961");
+    squares[3].push_back("196");
+
+    makeSqr(5);
     ll t=1; cin >> t;
     while(t--) solve();
 }
 
 void solve(){
-    ll i, n, m, k, j, s = 0, x = 0, ans=0; cin >> n;
-    vector<int>a(n);
-    for(int i=0; i<n; i++)
-    {
-       cin >> a[i];
+    int n; cin >> n;
+    for(int i=0; i<n; i++){
+        cout << squares[n][i] << nl;
     }
-    
 }

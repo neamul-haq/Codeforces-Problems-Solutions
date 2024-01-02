@@ -76,19 +76,18 @@ void solve()
     debug(c);
     for (int i = 0; i < n; i++)
     {
-        while (c[i].second - val >0 && k>0)
+        while (c[i].second - val-k >0 && k>0)
         {
             val += k;
             k -= c[i].first;
             if (k <= 0)
                 break;
-                debug(i,val,k);
+            debug(i, val, k);
         }
     }
-    // cout << val << ndl;
     for (int i = 0; i < n; i++)
     {
-        if (a[i] > val)
+        if (a[i] > val+k)
         {
             cno 
             return;

@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 31-12-2023  09:19:16
+CREATED: 02-01-2024  13:25:50
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,7 +23,6 @@ typedef long double ld;
 #define print cout << ans << '\n';
 #define   Pi     2*acos(0.0)
 #define   mem(a,v)   memset(a,v,sizeof(a))
-#define f(strt,end) for(int i=strt; i<=end; i++)
 #define sz(a) (int)(a).size()
 int const mod = 1e9+7;
 const ll inf = 1e18;
@@ -42,32 +41,24 @@ int main()
 }
 
 void solve(){
-    int i, n, m, k, j, s = 0,  ans=INT_MAX; cin >> n>>m;
+    ll i, n, ans=0; cin >> n;
     vector<int>a(n);
+    
     for(int i=0; i<n; i++)
     {
        cin >> a[i];
     }
-    vector<int>degrees(n);
-    int mnPair = INT_MAX;
-    for(int i=0; i<m; i++){
-        int x,y;
-        cin >> x >> y;
-        degrees[x-1]++;
-        degrees[y-1]++;
-        mnPair = min(mnPair, a[x-1]+a[y-1]);
-    }
-
-    if(m%2==0){
-        cout << 0 << nl;
-    }
-    else{
-        for(int i=0; i<n; i++){
-            if(degrees[i]%2==1){
-                ans = min(ans,a[i]);
+    int mx=a[0];
+    ans=1;
+    int cnt=1;
+    for(int i=1; i<n; i++){
+        if(a[i]>mx){
+            if(cnt==mx){
+                ans++;
             }
+            mx=a[i];
         }
-        ans = min(ans, mnPair);
-        cout << ans << nl;
+        cnt++;
     }
+    cout << ans << nl;
 }

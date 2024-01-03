@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 31-12-2023  09:19:16
+CREATED: 02-01-2024  11:03:25
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,7 +23,6 @@ typedef long double ld;
 #define print cout << ans << '\n';
 #define   Pi     2*acos(0.0)
 #define   mem(a,v)   memset(a,v,sizeof(a))
-#define f(strt,end) for(int i=strt; i<=end; i++)
 #define sz(a) (int)(a).size()
 int const mod = 1e9+7;
 const ll inf = 1e18;
@@ -37,37 +36,32 @@ int main()
 #ifndef LOKAL
     fast()
 #endif
-    ll t=1; cin >> t;
+    ll t=1; 
     while(t--) solve();
 }
 
 void solve(){
-    int i, n, m, k, j, s = 0,  ans=INT_MAX; cin >> n>>m;
-    vector<int>a(n);
-    for(int i=0; i<n; i++)
-    {
-       cin >> a[i];
-    }
-    vector<int>degrees(n);
-    int mnPair = INT_MAX;
-    for(int i=0; i<m; i++){
-        int x,y;
-        cin >> x >> y;
-        degrees[x-1]++;
-        degrees[y-1]++;
-        mnPair = min(mnPair, a[x-1]+a[y-1]);
-    }
-
-    if(m%2==0){
-        cout << 0 << nl;
-    }
-    else{
-        for(int i=0; i<n; i++){
-            if(degrees[i]%2==1){
-                ans = min(ans,a[i]);
+    ll i, k, j, q, ans=0; cin >> q;
+    ll left=0;
+    ll right=0;
+    map<ll,pair<char,ll>>m;
+    while(q--){
+        char c;
+        ll val;
+        cin >> c >> val;
+        if(c=='L'){
+            left++;
+            m[val] = {'L',left};
+        }
+        else if(c=='R'){
+            right++;
+            m[val] = {'R', right};
+        }
+        else{
+            if(m[val].first == 'L') cout << min(left-m[val].second,right+m[val].second-1) << nl;
+            else{
+                cout << min(right-m[val].second,left+m[val].second-1) << nl;
             }
         }
-        ans = min(ans, mnPair);
-        cout << ans << nl;
     }
 }

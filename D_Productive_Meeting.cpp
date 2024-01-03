@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 31-12-2023  09:19:16
+CREATED: 02-01-2024  12:40:04
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,7 +23,6 @@ typedef long double ld;
 #define print cout << ans << '\n';
 #define   Pi     2*acos(0.0)
 #define   mem(a,v)   memset(a,v,sizeof(a))
-#define f(strt,end) for(int i=strt; i<=end; i++)
 #define sz(a) (int)(a).size()
 int const mod = 1e9+7;
 const ll inf = 1e18;
@@ -42,32 +41,32 @@ int main()
 }
 
 void solve(){
-    int i, n, m, k, j, s = 0,  ans=INT_MAX; cin >> n>>m;
+    ll i, n, m, x = 0; cin >> n;
     vector<int>a(n);
+    vector<pair<int,int>>ans;
+    multiset<pair<int,int>, greater<pair<int,int>>>ms;
+    //eta priority queue diao kora jay
     for(int i=0; i<n; i++)
     {
        cin >> a[i];
+       if(a[i]) ms.insert({a[i],i+1});
     }
-    vector<int>degrees(n);
-    int mnPair = INT_MAX;
-    for(int i=0; i<m; i++){
-        int x,y;
-        cin >> x >> y;
-        degrees[x-1]++;
-        degrees[y-1]++;
-        mnPair = min(mnPair, a[x-1]+a[y-1]);
+    while(ms.size()>1){
+        auto it = ms.begin();
+        pair<int,int> p1 = *it;
+        it++;
+        pair<int,int> p2 = *it;
+        ms.erase(ms.begin());
+        ms.erase(it);
+        x++;
+        ans.push_back({p1.second,p2.second});
+        p1.first--;
+        p2.first--;
+        if(p1.first) ms.insert(p1);
+        if(p2.first) ms.insert(p2);
     }
-
-    if(m%2==0){
-        cout << 0 << nl;
-    }
-    else{
-        for(int i=0; i<n; i++){
-            if(degrees[i]%2==1){
-                ans = min(ans,a[i]);
-            }
-        }
-        ans = min(ans, mnPair);
-        cout << ans << nl;
+    cout << x << nl;
+    for(auto u:ans){
+        cout << u.first << " " << u.second << nl;
     }
 }

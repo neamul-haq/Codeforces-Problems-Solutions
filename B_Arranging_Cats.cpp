@@ -1,7 +1,7 @@
 /*
 Problem_Link:
 AUTHOR: Neyamul_Haq
-CREATED: 12-01-2024  21:07:44
+CREATED: 15-01-2024  20:47:21
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,25 +42,19 @@ int main()
 }
 
 void solve(){
-    ll i, n,m; cin >> n >> m;
-    vector<int>a(n);
-    map<ll,ll>mp;
-    ll ans;
-    for(int i=0; i<n; i++)
-    {
-       cin >> a[i];
-       mp[a[i]]++;
+    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n;
+    string s,s2;
+    cin >> s >> s2;
+    ll oz=0,zo=0;
+    for(int i=0; i<n; i++){
+        if(s[i]=='1' && s2[i]=='0') oz++;
+        else if(s[i]=='0' && s2[i]=='1') zo++;
     }
-    for(int i=1; i<m; i+=i){
-        if(i+i>m){
-            ans=mp[i];
-            break;
-        }
-        mp[i+i]+=mp[i]/2;
-        mp[i]-=mp[i]/2;
-    }
-    for(int i=0; i<32; i+=i){
-        if
-    }
-    
+    //cout << oz<<zo<<nl;
+    ll mn=min(oz,zo);
+    ans+=mn;
+    oz-=mn;
+    zo-=mn;
+    ans+=(oz+zo);
+    print
 }

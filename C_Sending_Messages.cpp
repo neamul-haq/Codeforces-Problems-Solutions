@@ -1,7 +1,7 @@
 /*
 Problem_Link:
 AUTHOR: Neyamul_Haq
-CREATED: 12-01-2024  21:07:44
+CREATED: 15-01-2024  20:57:33
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,25 +42,22 @@ int main()
 }
 
 void solve(){
-    ll i, n,m; cin >> n >> m;
-    vector<int>a(n);
-    map<ll,ll>mp;
-    ll ans;
-    for(int i=0; i<n; i++)
+    ll i, n, f,a,b, sum = 0, x = 0, ans=0; cin >> n>>f>>a>>b;
+    vector<ll>v(n+1);
+    for(int i=1; i<=n; i++)
     {
-       cin >> a[i];
-       mp[a[i]]++;
+       cin >> v[i];
     }
-    for(int i=1; i<m; i+=i){
-        if(i+i>m){
-            ans=mp[i];
-            break;
-        }
-        mp[i+i]+=mp[i]/2;
-        mp[i]-=mp[i]/2;
+    for(int i=1; i<=n; i++)
+    {
+        ll onoff=b;
+        ll move = (v[i]-v[i-1])*a;
+        f-=min(onoff,move);
+        debug(i,onoff,move,f);
+        if(f<=0) break;
     }
-    for(int i=0; i<32; i+=i){
-        if
+    if(f<=0) {
+        cno
     }
-    
+    else cyes
 }

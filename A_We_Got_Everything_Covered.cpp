@@ -1,7 +1,7 @@
 /*
 Problem_Link:
 AUTHOR: Neyamul_Haq
-CREATED: 12-01-2024  21:07:44
+CREATED: 27-01-2024  21:04:44
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,29 +42,13 @@ int main()
 }
 
 void solve(){
-    int n,w,ans=1;
-    cin >> n >> w;
-    int arr[n+1];
-    for(int i=1; i<=n; i++)
-        cin >> arr[i];
-    sort(arr+1,arr+n+1,greater<int>());
-    priority_queue<int> pq;
-    pq.push(w);
-    for(int i=1; i<=n; i++)
-    {
-        if(pq.top()>=arr[i])
-        {
-            ll x=pq.top();
-            pq.pop();
-            x-=arr[i];
-            pq.push(x);
+    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n>>m;
+    string s="";
+    while(x<n*m){
+        for(int i=1; i<=m; i++){
+            s+=i+96;
+            x++;
         }
-        else
-        {
-            pq.push(w-arr[i]);
-            ans++;
-        }
-        
     }
-    cout << ans << nl;
+    cout << s << nl;
 }

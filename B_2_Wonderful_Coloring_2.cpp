@@ -53,33 +53,36 @@ void solve()
     ll i, n, m, k, j, sum = 0, x = 0;
     cin >> n >> k;
     vector<int> ans(n);
-    vector<vector<int>>v(n);
-    map<int,int>cnt;
-    set<int>s;
-    int start=1;
+    vector<int> b;
+    vector<vector<int>>v(n+1);
     for (int i = 0; i < n; i++)
     {
         ll val;
         cin >> val;
         v[val].push_back(i);
-        s.insert(val);
     }
-    for(auto it:s){
-        j=start;
-
-        for(int i=0; i<v[it].size(); i++){
-            if(j>k){
-                ans[v[it][i]]=0;
-                continue;
+    for(int i=1; i<=n; i++){
+        if(v[i].size()>=k){
+            for(int j=0; j<k; j++){
+                ans[v[i][j]]=j+1;
             }
-            ans[v[it][i]]=j;
-            cnt[j]++;
-            if(cnt[j]==(n/k)) start++;
-            j++;
+        }
+        else{
+            for(int j=0; j<sz(v[i]); j++){
+                b.push_back(v[i][j]);
+            }
         }
     }
-    for(auto u:ans){
-        cout << u << " ";
+    j=1;
+    x=b.size()%k;
+    for(int i=0; i<sz(b)-x; i++){
+        ans[b[i]]=j;
+        j++;
+        if(j>k) j=1;
+    }
+
+    for(int i=0; i<n; i++){
+        cout << ans[i] << " ";
     }
     cout << nl;
 }

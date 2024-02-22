@@ -1,7 +1,7 @@
 /*
 Problem_Link:
 AUTHOR: Neyamul_Haq
-CREATED: 13-01-2024  10:43:26
+CREATED: 14-02-2024  11:00:37
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,25 +42,11 @@ int main()
 }
 
 void solve(){
-    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n >>m;
-    while(n and m and n!=m)
+    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n;
+    vector<int>a(n);
+    for(int i=0; i<n; i++)
     {
-        if(n>m){
-            if(n%m==0){
-                n=m;
-            }
-            else{
-                n = n%m;
-            }
-        }
-        else if(m>n){
-            if(m%n==0){
-                m=n;
-            }
-            else{
-                m = m%n;
-            }
-        }
+       cin >> a[i];
     }
-    cout << n+m << nl;
+    
 }

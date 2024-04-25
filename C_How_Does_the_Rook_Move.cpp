@@ -1,7 +1,7 @@
 /*
 Problem_Link:
 AUTHOR: Neyamul_Haq
-CREATED: 13-04-2024  10:03:31
+CREATED: 24-04-2024  10:25:59
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,9 +42,11 @@ int main()
 }
 
 void solve(){
-    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n>>m>>k;
-    ll max_color = (n + m - 1) / m;
-    if(max_color+k>=n) cno
-    else cyes
+    ll i, n, m, k, j, sum = 0, x = 0, ans=0; cin >> n;
+    vector<int>a(n);
+    for(int i=0; i<n; i++)
+    {
+       cin >> a[i];
+    }
     
 }
